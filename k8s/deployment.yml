@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jewellery-static
+  namespace: static
+spec:
+  selector:
+    matchLabels:
+      app: jewellery-static
+  template:
+    metadata:
+      labels:
+        app: jewellery-static
+    spec:
+      containers:
+      - name: jewellery-static
+        image: saikrish12345/jewellary_static_template:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
